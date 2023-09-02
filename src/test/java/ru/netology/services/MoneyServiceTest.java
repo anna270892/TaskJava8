@@ -1,18 +1,19 @@
 package ru.netology.services;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 
 public class MoneyServiceTest {
 
-    @Test
-    public void restCalculation () {
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/money.csv")
+    public void restCalculation (int expected, int income , int expense) {
 
         MoneyService service = new MoneyService();
 
-        int expected = 3;
-        int actual = service.calculate(10000, 3000);
+        int actual = service.calculate(income, expense);
 
         Assertions.assertEquals(expected, actual);
     }
