@@ -9,7 +9,7 @@ public class MoneyServiceTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/money.csv")
-    public void restCalculation (int expected, int income , int expense) {
+    public void restCalculation(int expected, int income, int expense) {
 
         MoneyService service = new MoneyService();
 
